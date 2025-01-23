@@ -4,12 +4,14 @@ import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import med.voll.api.endereco.Endereco;
 
 @Entity
 @Table(name = "medicos")
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
+@ToString
 public class Medico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -68,6 +70,9 @@ public class Medico {
         return endereco;
     }
 
+    public boolean isAtivo() {
+        return ativo;
+    }
 
     public void atualizarInformacoes(DadosAtualizacaoMedico dados) {
         if (dados.nome() != null){

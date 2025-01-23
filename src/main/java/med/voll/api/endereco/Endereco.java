@@ -3,10 +3,11 @@ package med.voll.api.endereco;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.ToString;
 
 @Embeddable
-@Getter
 @AllArgsConstructor
+@ToString
 public class Endereco {
     private String logradouro;
     private String bairro;
@@ -59,4 +60,31 @@ public class Endereco {
         }
     }
 
+    public String getLogradouro() {
+        return logradouro;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public String getUf() {
+        return uf;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
 }
