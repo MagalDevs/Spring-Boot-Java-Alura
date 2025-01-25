@@ -1,6 +1,4 @@
-package med.voll.api.medico;
-
-import java.util.Optional;
+package med.voll.api.domain.medico;
 
 public record MedicoDTO(Long id, String nome, String email, String crm, Especialidade especialidade) {
 
