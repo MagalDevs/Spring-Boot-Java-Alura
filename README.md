@@ -26,3 +26,13 @@ Este repositório foi criado para acompanhar os estudos da formação de **Sprin
 ### 5. **Paginação de Dados**
 - Implementação de paginação e ordenação nos endpoints da API.
 - Utilização de métodos do Spring Data JPA para simplificar a manipulação de grandes volumes de dados.
+
+### 6. **Padronização e Segurança da API**
+- Padronização dos retornos dos controllers da API.
+- Utilização dos códigos HTTP corretamente.
+- Adição do módulo **Spring Security** no projeto.
+- Implementação de um mecanismo de autenticação na API.
+- Realização do controle de acesso na API.
+- Utilização do **Json Web Token (JWT)** para controlar o acesso na API.
+
+
