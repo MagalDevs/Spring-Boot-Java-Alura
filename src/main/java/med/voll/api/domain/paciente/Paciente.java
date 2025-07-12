@@ -3,12 +3,16 @@ package med.voll.api.domain.paciente;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import med.voll.api.domain.endereco.Endereco;
 
 @Entity
 @Table(name = "pacientes")
+@Data
 @AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Paciente {
     @Id
@@ -31,37 +35,6 @@ public class Paciente {
         this.telefone = dados.telefone();
         this.cpf = dados.cpf();
         this.endereco = new Endereco(dados.endereco());
-    }
-
-    public Paciente() {
-    }
-
-    public Boolean getAtivo() {
-        return ativo;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public Endereco getEndereco() {
-        return endereco;
     }
 
     public void atualizarDados(DadosAtualizacaoPaciente dados) {

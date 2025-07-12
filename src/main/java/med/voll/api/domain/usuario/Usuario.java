@@ -13,6 +13,7 @@ import java.util.List;
 @Table(name = "usuarios")
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 @EqualsAndHashCode(of = "id")
 public class Usuario implements UserDetails {
 
@@ -55,17 +56,5 @@ public class Usuario implements UserDetails {
     @Override
     public boolean isEnabled() {
         return UserDetails.super.isEnabled();
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public String getSenha() {
-        return senha;
     }
 }

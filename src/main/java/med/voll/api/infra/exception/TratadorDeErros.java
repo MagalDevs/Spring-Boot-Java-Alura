@@ -12,12 +12,17 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+
 @RestControllerAdvice
 public class TratadorDeErros {
 
     @ExceptionHandler(EntityNotFoundException.class)
-    public ResponseEntity tratarErro404(){
-        return ResponseEntity.notFound().build();
+    public ResponseEntity tratarErro404(EntityNotFoundException exception) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("message", exception.getLocalizedMessage(), "status", HttpStatus.NOT_FOUND.value()));
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

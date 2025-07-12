@@ -2,15 +2,15 @@ package med.voll.api.domain.medico;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.ToString;
 import med.voll.api.domain.endereco.Endereco;
 
 @Entity
 @Table(name = "medicos")
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-@ToString
+@Data
 public class Medico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,38 +39,6 @@ public class Medico {
         this.telefone = dados.telefone();
         this.especialidade = dados.especialidade();
         this.endereco = new Endereco(dados.endereco());
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getCrm() {
-        return crm;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public Especialidade getEspecialidade() {
-        return especialidade;
-    }
-
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public boolean isAtivo() {
-        return ativo;
     }
 
     public void atualizarInformacoes(DadosAtualizacaoMedico dados) {

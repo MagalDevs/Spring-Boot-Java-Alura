@@ -1,12 +1,16 @@
 package med.voll.api.domain.endereco;
 
 import jakarta.persistence.Embeddable;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
-import lombok.ToString;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Embeddable
 @AllArgsConstructor
-@ToString
+@NoArgsConstructor
+@Data
 public class Endereco {
     private String logradouro;
     private String bairro;
@@ -16,10 +20,7 @@ public class Endereco {
     private String numero;
     private String complemento;
 
-    public Endereco() {
-    }
-
-    public Endereco(DadosEndereco endereco) {
+    public Endereco(@NotNull @Valid DadosEndereco endereco) {
         this.logradouro = endereco.logradouro();
         this.bairro = endereco.bairro();
         this.cep = endereco.cep();
@@ -57,33 +58,5 @@ public class Endereco {
         if (endereco.complemento() != null){
             this.complemento = endereco.complemento();
         }
-    }
-
-    public String getLogradouro() {
-        return logradouro;
-    }
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public String getUf() {
-        return uf;
-    }
-
-    public String getNumero() {
-        return numero;
-    }
-
-    public String getComplemento() {
-        return complemento;
     }
 }
