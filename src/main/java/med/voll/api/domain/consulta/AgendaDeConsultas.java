@@ -29,7 +29,7 @@ public class AgendaDeConsultas {
     @Autowired
     private List<ValidadorCancelamentoDeConsulta> validadoresCancelamento;
 
-    public Consulta agendar(DadosAgendamentoConsulta dados) {
+    public DadosDetalhamentoConsulta agendar(DadosAgendamentoConsulta dados) {
         if (!pacienteRepository.existsById(dados.idPaciente())){
             throw new ValidacaoException("Paciente não encontrado!");
         }
@@ -47,7 +47,8 @@ public class AgendaDeConsultas {
         }
         var consulta = new Consulta(medico, paciente, dados.data());
         ConsultaRepository.save(consulta);
-        return consulta;
+        var dtoConsulta = new DadosDetalhamentoConsulta(consulta);
+        return dtoConsulta;
     }
 
     private Medico escolherMedicos(DadosAgendamentoConsulta dados) {
